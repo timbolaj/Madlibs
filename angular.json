@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "madlibs"
+    }
+  },
+  "defaultProject": "madlibs",
+  "cli": {
+    "analytics": false
+  }
 }
