@@ -1,1 +1,27 @@
-<p>form works!</p>
+<form [formGroup]="form">
+  <div>
+    <p>Name:</p>
+    <input type="text" formControlName="name">
+  </div>
+  <div>
+    <p>Adjective:</p>
+    <input type="text" formControlName="adjective1">
+  </div>
+  <div>
+    <p>Adjective:</p>
+    <input type="text" formControlName="adjective2">
+  </div>
+  <div>
+    <p>Adverb:</p>
+    <input type="text" formControlName="adverb">
+  </div>
+  <div>
+    <p>City:</p>
+    <input type="text" formControlName="city">
+  </div>
+  <div>
+    <p>Name of your friend:</p>
+    <input type="text" formControlName="nameOfFriend">
+  </div>
+  <button (click)="handleSubmit()">Submit</button>
+</form>
