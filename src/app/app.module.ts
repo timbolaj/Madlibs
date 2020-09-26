@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FormComponent } from './form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    FormComponent
+    FormComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
