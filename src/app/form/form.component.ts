@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit, NgModule } from '@angular/core';
+import { FormControl, FormGroup, Form } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -8,7 +8,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  form: FormGroup
+  form: FormGroup;
+  invalid: boolean = false;
 
   constructor() { }
 
@@ -24,6 +25,10 @@ export class FormComponent implements OnInit {
   }
 
   handleSubmit(): void {
-    console.log(this.form)
+    if (!this.form.valid) {
+      this.invalid = true;
+      return;
+    }
+    this.invalid = false;
   }
 }

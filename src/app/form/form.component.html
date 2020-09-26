@@ -1,27 +1,27 @@
 <form [formGroup]="form">
-  <div>
+  <div class="form-input">
     <p>Name:</p>
-    <input type="text" formControlName="name">
+    <input type="text" formControlName="name" required>
   </div>
-  <div>
+  <div class="form-input">
     <p>Adjective:</p>
-    <input type="text" formControlName="adjective1">
+    <input type="text" formControlName="adjective1" required>
   </div>
-  <div>
+  <div class="form-input">
     <p>Adjective:</p>
-    <input type="text" formControlName="adjective2">
+    <input type="text" formControlName="adjective2" required>
   </div>
-  <div>
+  <div class="form-input">
     <p>Adverb:</p>
-    <input type="text" formControlName="adverb">
+    <input type="text" formControlName="adverb" required>
   </div>
-  <div>
+  <div class="form-input">
     <p>City:</p>
-    <input type="text" formControlName="city">
+    <input type="text" formControlName="city" required>
   </div>
-  <div>
+  <div class="form-input">
     <p>Name of your friend:</p>
-    <input type="text" formControlName="nameOfFriend">
   </div>
   <button (click)="handleSubmit()">Submit</button>
+  <p *ngIf="invalid">Bruh, fill out the form</p>
 </form>
