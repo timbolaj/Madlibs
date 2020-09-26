@@ -21,6 +21,7 @@
   </div>
   <div class="form-input">
     <p>Name of your friend:</p>
+    <input type="text" formControlName="friend" required>
   </div>
   <button (click)="handleSubmit()">Submit</button>
   <p *ngIf="invalid">Bruh, fill out the form</p>
