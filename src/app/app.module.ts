@@ -8,6 +8,9 @@ import { FormComponent } from './form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
 
+import { StoreModule } from '@ngrx/store';
+import { formReducer } from './form.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,8 @@ import { NavComponent } from './nav/nav.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({ form: formReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
