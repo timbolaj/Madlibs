@@ -19,7 +19,6 @@ export class FormComponent implements OnInit {
   constructor(
     private router: Router,
     private store: Store<{form: Object}>) {
-    this.form$ = store.select('form');
   }
 
   ngOnInit(): void {
@@ -31,7 +30,6 @@ export class FormComponent implements OnInit {
       'city': new FormControl(''),
       'nameOfFriend': new FormControl(''),
     })
-    this.form$.subscribe(res => console.log(res))
   }
 
   handleSubmit(): void {

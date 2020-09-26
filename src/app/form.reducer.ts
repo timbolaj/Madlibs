@@ -1,12 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
 import { reset, save } from './form.actions';
 
-export interface State {
+export interface appState {
   form: {},
   numberOfForms: number,
 }
 
-export const initialState: State = {
+export const initialState: appState = {
   form: {},
   numberOfForms: 0
 }
