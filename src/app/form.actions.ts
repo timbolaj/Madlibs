@@ -1,5 +1,4 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
-export const loadText = createAction('[Form Component] Load');
-export const saveText = createAction('[Form Component] Save');
+export const save = createAction('[Form Component] Save', props<object>());
 export const reset = createAction('[Form Component] Refresh');

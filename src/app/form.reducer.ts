@@ -1,7 +1,16 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadText, saveText, reset } from './form.actions';
+import { reset, save } from './form.actions';
 
-export const initialState = {
+export interface State {
+  name: string,
+  adjective1: string,
+  adjective2: string,
+  adverb: string,
+  city: string,
+  nameOfFriend: string,
+}
+
+export const initialState: State = {
   name: '',
   adjective1: '',
   adjective2: '',
@@ -12,18 +21,15 @@ export const initialState = {
 
 export const _formReducer = createReducer(
   initialState,
-  on(loadText, (state) => state),
-  on(reset, () => initialState),
-  on(saveText, (state, val) => {
-    return {
-      ...state,
-      val
-    }
-  }),
+
+  on(reset, state => initialState),
+  on(save, (state, form) => (
+    {
+    form,
+    ...state
+  }))
 )
 
 export function formReducer(state, action) {
-  console.log(state)
-  console.log(action)
   return _formReducer(state, action);
 }
