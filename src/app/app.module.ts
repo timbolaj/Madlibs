@@ -10,13 +10,15 @@ import { NavComponent } from './nav/nav.component';
 
 import { StoreModule } from '@ngrx/store';
 import { formReducer } from './form.reducer';
+import { MadLibTextComponent } from './mad-lib-text/mad-lib-text.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     FormComponent,
-    NavComponent
+    NavComponent,
+    MadLibTextComponent
   ],
   imports: [
     BrowserModule,

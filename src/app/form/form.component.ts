@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Form } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { reset, save } from '../form.actions';
+import { save } from '../form.actions';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -16,6 +17,7 @@ export class FormComponent implements OnInit {
   form$: Observable<Object>
 
   constructor(
+    private router: Router,
     private store: Store<{form: Object}>) {
     this.form$ = store.select('form');
   }
@@ -37,8 +39,10 @@ export class FormComponent implements OnInit {
       this.invalid = true;
       return;
     }
-    const responses = this.form.value
+
+    const responses = this.form.value;
+    this.store.dispatch(save(responses));
     this.invalid = false;
-    this.store.dispatch(save(responses))
+    this.router.navigateByUrl('/text');
   }
 }
