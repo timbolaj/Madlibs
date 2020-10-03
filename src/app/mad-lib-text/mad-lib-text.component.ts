@@ -13,6 +13,8 @@ export class MadLibTextComponent implements OnInit {
   appState$: Observable<Object>
   formNumber;
   formValues;
+  displayValues = {};
+  textHeader = ['You ate my dog', 'My dog ate my friend', 'My dog gave birth to my friend']
 
   constructor(
     private store: Store<{form}>
@@ -23,8 +25,25 @@ export class MadLibTextComponent implements OnInit {
   ngOnInit(): void {
     this.appState$.subscribe((res: appState) => {
       this.formValues = res.form;
+      for (const key in this.formValues) {
+        if (key[0] !== '[') {
+          key !== 'nameOfFriend'
+            ? this.displayValues[key] = this.toUpperLowerCase(this.formValues[key], false)
+            : this.displayValues[key] = this.toUpperLowerCase(this.formValues[key], true);
+        }
+      }
       this.formNumber = res.numberOfForms;
     })
   }
 
+  toUpperLowerCase(val: string, upper: boolean): string {
+    const modify = val.split('');
+    if (upper) {
+      modify[0] = modify[0].toUpperCase();
+    } else {
+      modify[0] = modify[0].toLowerCase();
+    }
+    console.log(modify)
+    return modify.join('');
+  }
 }

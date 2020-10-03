@@ -23,9 +23,10 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      'name': new FormControl(''),
       'adjective1': new FormControl(''),
       'adjective2': new FormControl(''),
+      'adjective3': new FormControl(''),
+      'adjective4': new FormControl(''),
       'adverb': new FormControl(''),
       'city': new FormControl(''),
       'nameOfFriend': new FormControl(''),
