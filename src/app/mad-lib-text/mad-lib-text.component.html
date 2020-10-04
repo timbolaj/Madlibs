@@ -1,16 +1,19 @@
-<div class="top-part">
-  <h1>My friend {{displayValues.nameOfFriend}} is a {{displayValues.adjective1}} person.</h1>
+<div *ngIf="displayValues.city">
+  <div class="top-part">
+    <h1>My friend {{displayValues.nameOfFriend}} is a {{displayValues.adjective1}} person.</h1>
+    <br>
+    <p>Which is why I don't understand how {{displayValues.nameOfFriend}} could have done this {{displayValues.adjective2}} thing.</p>
+  </div>
+  <div class="middle-part">
+    <p>You see, {{displayValues.nameOfFriend}} comes from {{displayValues.city}} - so maybe it isn't all that surprising.</p>
+    <p>This afternoon, I walked into my living room and I saw {{displayValues.nameOfFriend}} doing something absolutely {{displayValues.adjective3}}.</p>
+  </div>
   <br>
-  <p>Which is why I don't understand how {{displayValues.nameOfFriend}} could have done this {{displayValues.adjective2}} thing.</p>
+  <div class="bottom-part">
+    <p>{{displayValues.nameOfFriend}} was {{displayValues.adverb}} eating my dog when I came home to feed him.</p>
+    <p>Me. Very {{displayValues.adjective4}}.</p>
+  </div>
 </div>
-<div class="middle-part">
-  <p>You see, {{displayValues.nameOfFriend}} comes from {{displayValues.city}} - so maybe it isn't all that surprising.</p>
-  <p>This afternoon, I walked into my living room and I saw {{displayValues.nameOfFriend}} doing something absolutely {{displayValues.adjective3}}.</p>
-</div>
-<br>
-<div class="bottom-part">
-  <p>{{displayValues.nameOfFriend}} was {{displayValues.adverb}} eating my dog when I came home to feed him.</p>
-  <p>Me. Very {{displayValues.adjective4}}.</p>
-</div>
+
 
 <button (click)="handleSubmit()">Make another one!</button>

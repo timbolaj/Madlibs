@@ -14,7 +14,10 @@ export class MadLibTextComponent implements OnInit {
   appState$: Observable<Object>
   formNumber;
   formValues;
-  displayValues = {};
+  displayValues = {
+    nameOfFriend: '',
+
+  };
   textHeader = ['You ate my dog', 'My dog ate my friend', 'My dog gave birth to my friend']
 
   constructor(
