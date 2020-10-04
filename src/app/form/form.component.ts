@@ -30,7 +30,7 @@ export class FormComponent implements OnInit {
       'adverb': new FormControl(''),
       'city': new FormControl(''),
       'nameOfFriend': new FormControl(''),
-    })
+    });
   }
 
   handleSubmit(): void {
@@ -38,8 +38,8 @@ export class FormComponent implements OnInit {
       this.invalid = true;
       return;
     }
-
     const responses = this.form.value;
+
     this.store.dispatch(save(responses));
     this.invalid = false;
     this.router.navigateByUrl('/text');

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { appState } from '../form.reducer';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mad-lib-text',
@@ -17,7 +18,8 @@ export class MadLibTextComponent implements OnInit {
   textHeader = ['You ate my dog', 'My dog ate my friend', 'My dog gave birth to my friend']
 
   constructor(
-    private store: Store<{form}>
+    private store: Store<{form}>,
+    private router: Router,
   ) {
     this.appState$ = store.select('form');
    }
@@ -43,7 +45,11 @@ export class MadLibTextComponent implements OnInit {
     } else {
       modify[0] = modify[0].toLowerCase();
     }
-    console.log(modify)
     return modify.join('');
+  }
+
+  handleSubmit(): void {
+    // dispatch to store the amount of times the form has been remade
+    this.router.navigateByUrl('/form');
   }
 }
