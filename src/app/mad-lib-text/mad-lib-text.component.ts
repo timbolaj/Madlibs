@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TRANSLATIONS_FORMAT } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { appState } from '../form.reducer';
@@ -16,7 +16,6 @@ export class MadLibTextComponent implements OnInit {
   formValues;
   displayValues = {
     nameOfFriend: '',
-
   };
   textHeader = ['You ate my dog', 'My dog ate my friend', 'My dog gave birth to my friend']
 
@@ -28,11 +27,15 @@ export class MadLibTextComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.appState$.subscribe((res: appState) => {
+    this.appState$.subscribe((res: any) => {
+      if (!res.form.city) {
+        this.toForm();
+      }
+
       this.formValues = res.form;
       for (const key in this.formValues) {
         if (key[0] !== '[') {
-          key !== 'nameOfFriend'
+          key !== 'nameOfFriend' && key !== 'city'
             ? this.displayValues[key] = this.toUpperLowerCase(this.formValues[key], false)
             : this.displayValues[key] = this.toUpperLowerCase(this.formValues[key], true);
         }
@@ -51,7 +54,7 @@ export class MadLibTextComponent implements OnInit {
     return modify.join('');
   }
 
-  handleSubmit(): void {
+  toForm(): void {
     // dispatch to store the amount of times the form has been remade
     this.router.navigateByUrl('/form');
   }

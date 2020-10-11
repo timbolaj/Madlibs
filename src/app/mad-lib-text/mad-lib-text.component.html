@@ -1,4 +1,4 @@
-<div *ngIf="displayValues.city">
+<div *ngIf="displayValues">
   <div class="top-part">
     <h1>My friend {{displayValues.nameOfFriend}} is a {{displayValues.adjective1}} person.</h1>
     <br>
@@ -15,5 +15,4 @@
   </div>
 </div>
 
-
-<button (click)="handleSubmit()">Make another one!</button>
+<button (click)="toForm()">Make another one!</button>
